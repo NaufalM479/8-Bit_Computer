@@ -1,4 +1,4 @@
-8-BIT COMPUTER IMPLEMENTATION ON VHDL 🖥️
+8-BIT COMPUTER IMPLEMENTATION ON VHDL 🖥️ (NOT YET FINISHED)
 ===
 An implementation of a simple made 8-bit computer
 ## Information
@@ -12,15 +12,16 @@ An implementation of a simple made 8-bit computer
 - GTKWave (https://sourceforge.net/projects/gtkwave/)
 - Installation Guide (https://www.youtube.com/watch?v=0JJku1vTu78)
 
-## Use
-- to automatically compile the waveform
+## Usage
+- to automatically compile the waveform (Windows)
   ```
   compile.bat
   ```
-- to run simulation on gtkwave
+- to automatically compile the waveform (Ubuntu)
   ```
-  gtkwave
+  bash compile.sh
   ```
+- Run GTKWave
 - on GTKWave, select file and open "computer.vcd"
 - select different .vcds file for different kind of simulation
 
