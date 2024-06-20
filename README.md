@@ -3,8 +3,10 @@
 An implementation of a simple made 8-bit computer
 ## Information
 - Title:  `8-BIT COMPUTER IMPLEMENTATION ON VHDL`
+
 - Authors:  `Bandarnft (https://github.com/NaufalM479)`
-- Note: `This file was not mine, I just modified and documented the VHDL program 😅`
+
+- Note: `This file was not mine, I just modified the code and documented the VHDL program 😅`
 
 ##  Dependencies
 ### Open the link for installation guide 
@@ -25,6 +27,10 @@ An implementation of a simple made 8-bit computer
 - on GTKWave, select file and open "computer.vcd"
 - select different .vcds file for different kind of simulation
 
-## Citation
+## Read This for EXTRA info
 ```
+http://www.ee.nmt.edu/~rison/ee308_spr02/supp/020123.pdf (ALU)
+
+
+
 ```
