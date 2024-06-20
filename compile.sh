@@ -6,7 +6,7 @@ ghdl -a --ieee=synopsys -fexplicit memory.vhd
 ghdl -a --ieee=synopsys -fexplicit Output_Ports.vhd
 ghdl -a --ieee=synopsys -fexplicit rom_128x8_sync.vhd
 ghdl -a --ieee=synopsys -fexplicit rw_96x8_sync.vhd
-ghdl -a --ieee=synopsys -fexplicit computer.tbex
 ghdl -a --ieee=synopsys -fexplicit computer.vhd
+ghdl -a --ieee=synopsys -fexplicit computer.tb
 ghdl -e --ieee=synopsys -fexplicit computer
 ghdl -r --ieee=synopsys -fexplicit computer --vcd=Computer.vcd --stop-time=10000ms

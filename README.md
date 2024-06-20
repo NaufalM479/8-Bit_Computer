@@ -31,6 +31,6 @@ An implementation of a simple made 8-bit computer
 ```
 http://www.ee.nmt.edu/~rison/ee308_spr02/supp/020123.pdf (ALU)
 
-
+https://www.embecosm.com/appnotes/ean13/html/ch03.html (C.U.M instructions)
 
 ```
