@@ -25,6 +25,5 @@ An implementation of a simple made 8-bit computer
 - select different .vcds file for different kind of simulation
 
 ## Citation
-If you use xxx,please use the following BibTeX entry.
 ```
 ```
