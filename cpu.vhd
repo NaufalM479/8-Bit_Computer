@@ -74,6 +74,7 @@ use IEEE.STD_LOGIC_1164.ALL;
  -- port map instantiate control unit module and data path
  -- connecting both to enable data transfer
  
+ -- Control Unit Module port map
  control_unit_module: control_unit port map  
  (  
                 clock => clock,  
@@ -92,8 +93,8 @@ use IEEE.STD_LOGIC_1164.ALL;
                 Bus1_Sel => Bus1_Sel,  
                 write_en => write_en  
  );  
-
- -- data_path  
+ 
+ -- data path port map
  data_path_u: data_path port map   
  (  
                 clock => clock,  
