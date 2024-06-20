@@ -127,35 +127,15 @@ begin
     CCR_Result <= CCR;
 
     -- Bus 2 multiplexer
-    BUS2_MUX: process (Bus2_Sel, ALU_Result, from_memory)
-    begin
-        case Bus2_Sel is
-            when "00" =>
-                BUS2 <= ALU_Result;
-            when "01" =>
-                BUS2 <= ALU_Result;
-            when "10" =>
-                BUS2 <= from_memory;
-            when others =>
-                BUS2 <= x"00";
-        end case;
-    end process;
+    BUS2 <= ALU_Result   when Bus2_Sel = "00" else  
+    BUS1         when Bus2_Sel = "01" else  
+    from_memory  when Bus2_Sel = "10" else  
+                   x"00"; 
 
     -- Bus 1 multiplexer
-    BUS1_MUX: process (Bus1_Sel, PC, A_Reg, B_Reg)
-    begin
-        case Bus1_Sel is
-            when "00" =>
-                BUS1 <= PC;
-            when "01" =>
-                BUS1 <= A_Reg;
-            when "10" =>
-                BUS1 <= B_Reg;
-            when others =>
-                BUS1 <= x"00";
-        end case;
-    end process;
-
-    -- Output to memory
-    to_memory <= ALU_Result;
+    BUS1 <=  PC      when Bus1_Sel = "00" else  
+    A_Reg   when Bus1_Sel = "01" else  
+    B_Reg   when Bus1_Sel = "10" else  
+                x"00";  
+to_memory <= BUS1;
 end Behavioral;

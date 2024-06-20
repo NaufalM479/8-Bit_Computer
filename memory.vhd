@@ -119,7 +119,7 @@ architecture Behavioral of memory is
             -- data_in => ram_out,
             data_in => data_in,
             port_out_00 => port_out_00,
-            port_out_01 => port_out_01,
+            port_out_01 => open, --port_out_01
             port_out_02 => port_out_02,
             port_out_03 => port_out_03,
             port_out_04 => port_out_04,
@@ -135,6 +135,30 @@ architecture Behavioral of memory is
             port_out_14 => port_out_14,
             port_out_15 => port_out_15
         );
+
+        mux_out_u: mux_out port map
+		          (
+					data_out => data_out,
+	      		rom_out => rom_out_s,
+					ram_out => ram_out_s,
+					address => mux_address,
+					port_in_00 => port_in_00,
+					port_in_01 => port_in_01,
+		      	port_in_02 => port_in_02,
+      			port_in_03 => port_in_03,
+		      	port_in_04 => port_in_04,
+      			port_in_05 => port_in_05,
+      			port_in_06 => port_in_06,
+      			port_in_07 => port_in_07,
+	      		port_in_08 => port_in_08,
+		      	port_in_09 => port_in_09,
+		      	port_in_10 => port_in_10,
+		      	port_in_11 => port_in_11,
+		      	port_in_12 => port_in_12,
+		      	port_in_13 => port_in_13,
+	      		port_in_14 => port_in_14,
+		      	port_in_15 => port_in_15
+					             );
         data_out <= rom_out when address < x"80" else
             ram_out when address < x"E0" else
             port_in_00 when address = x"F0" else
