@@ -58,6 +58,7 @@ architecture Behavioral of computer is
     -- Memory port definition
     component memory is
         port (
+            clock, reset: in std_logic;
             address: in std_logic_vector(7 downto 0);       -- ADDRESS
             write_en: in std_logic;                         -- Write
             data_in: in std_logic_vector(7 downto 0);       -- Data in

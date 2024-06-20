@@ -1,33 +1,44 @@
+-- LIBRARY INCLUDE FOR C.U.M (Control Unit Module)
 library IEEE;  
- use IEEE.STD_LOGIC_1164.ALL;  
- -- control unit  
- entity control_unit is  
- port ( 
-                clock,reset: in std_logic;  
-                IR_Load: out std_logic;  
-                IR: in std_logic_vector(7 downto 0);  
-                MAR_Load: out std_logic;  
-                PC_Load: out std_logic;  
-                PC_Inc: out std_logic;  
-                A_Load: out std_logic;  
-                B_Load:out std_logic;  
-                ALU_Sel:out std_logic_vector(2 downto 0);  
-                CCR_Result: in std_logic_vector(3 downto 0);  
-                CCR_Load: out std_logic;  
-                Bus2_Sel: out std_logic_vector(1 downto 0);  
-                Bus1_Sel: out std_logic_vector(1 downto 0);  
-                write_en: out std_logic  
+use IEEE.STD_LOGIC_1164.ALL;  
+
+entity control_unit is  
+port ( 
+               clock,reset: in std_logic;  
+               IR_Load: out std_logic;  
+               IR: in std_logic_vector(7 downto 0);  
+               MAR_Load: out std_logic;  
+               PC_Load: out std_logic;  
+               PC_Inc: out std_logic;  
+               A_Load: out std_logic;  
+               B_Load:out std_logic;  
+               ALU_Sel:out std_logic_vector(2 downto 0);  
+               CCR_Result: in std_logic_vector(3 downto 0);  
+               CCR_Load: out std_logic;  
+               Bus2_Sel: out std_logic_vector(1 downto 0);  
+               Bus1_Sel: out std_logic_vector(1 downto 0);  
+               write_en: out std_logic  
            );  
- end control_unit;  
- architecture Behavioral of control_unit is
---fpga4student.com FPGA projects, Verilog projects, VHDL projects  
- type FSM is (S_FETCH_0,S_FETCH_1,S_FETCH_2,S_DECODE_3,S_LOAD_AND_STORE_4,S_LOAD_AND_STORE_5,S_LOAD_AND_STORE_6,       
-                                                                                                     S_LOAD_AND_STORE_7,S_DATA_MAN_4,  
-                                                    S_BRANCH_4,S_BRANCH_5,S_BRANCH_6                                                                                                      
-                                                                                                     );  
- signal current_state,next_state: FSM;  
- signal LOAD_STORE_OP,DATA_MAN_OP,BRANCH_OP: std_logic;  
- begin  
+end control_unit;  
+
+architecture Behavioral of control_unit is
+type FSM is (S_FETCH_0,
+             S_FETCH_1,
+             S_FETCH_2,
+             S_DECODE_3,
+             S_LOAD_AND_STORE_4,
+             S_LOAD_AND_STORE_5,
+             S_LOAD_AND_STORE_6,       
+             S_LOAD_AND_STORE_7,
+             S_DATA_MAN_4,  
+             S_BRANCH_4,
+             S_BRANCH_5,
+             S_BRANCH_6);  
+ 
+-- internal process signal
+signal current_state,next_state: FSM;  
+signal LOAD_STORE_OP,DATA_MAN_OP,BRANCH_OP: std_logic;  
+begin  
       -- FSM State FFs  
       process(clock,reset)  
       begin  
