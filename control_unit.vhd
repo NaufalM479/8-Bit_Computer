@@ -2,6 +2,7 @@
 library IEEE;  
 use IEEE.STD_LOGIC_1164.ALL;  
 
+-- control unit definition
 entity control_unit is  
 port ( 
                clock,reset: in std_logic; -- clock and reset signal
