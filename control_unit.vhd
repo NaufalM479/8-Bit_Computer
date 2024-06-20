@@ -258,7 +258,7 @@ begin
            end case;  
       end process;  
      
-      -- signal assignment
+      -- signal assignment, manage the next state to decode
       LOAD_STORE_OP <= '1' when IR = x"86" else  
                                 '1' when IR = x"87" else  
                                 '1' when IR = x"88" else  
